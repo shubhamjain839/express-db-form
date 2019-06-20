@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    div.container
+        div.jumbotron.bg-dark.text-light.text-center Fill Data
+        form.form(action='/savedata' method='post' style="margin: 0px 10%;")
+            div.form-group
+                input.form-control(type="text" name='name' placeholder='Enter Name')
+            div.form-group
+                input.form-control(type="text" name='email' placeholder='Enter Email-ID')
+            div.form-group
+                input.form-control(type="text" name='address' placeholder='Enter Address')
+            div.form-group
+                input.form-control.btn.btn-secondary(type="submit" value="Submit")

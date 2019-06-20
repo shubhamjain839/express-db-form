@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    div.container
+        div.jumbotron.bg-dark.text-light.text-center Update Data
+        form.row.form(action='#' method='post' style="margin: 0px 10%;")
+            div.col-sm-8.form-group
+                input.form-control(type="text" name='email' placeholder='Enter Email-ID')
+            div.col-sm-4.form-group
+                input.btn.btn-secondary(type="button" value="Search" onclick='mailser()')
+        div#updiv(style='display: none;')
+            form.form(action='/updata' method='post' style="margin: 0px 10%;")
+                div.form-group
+                    input.form-control(type="text" name='name' placeholder='Enter Name')
+                div.form-group
+                    input.form-control(type="text" name='address' placeholder='Enter Address')
+                div.form-group
+                    input.form-control.btn.btn-secondary(type="submit" value="Update")

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div.container
+    div.jumbotron.bg-dark.text-light.text-center Welcome
+    div(style="margin: 0px 20%;")
+      div.form-group
+        a.btn.btn-dark.btn-block(href="/form") Enter Data
+      div.form-group
+        a.btn.btn-secondary.btn-block(href="/update") Update Data
+      div.form-group
+        a.btn.btn-dark.btn-block(href="/delete") Delete Data
+      div.form-group
+        a.btn.btn-secondary.btn-block(href="#") Fetch Data
