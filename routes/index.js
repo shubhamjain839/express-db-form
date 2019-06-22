@@ -46,7 +46,7 @@ router.post('/updata',function(req,res,next){
     if(err) throw err;
     console.log('DB Connected');
     var dbs = db.db('db1');
-    var query = { "Email":tf2};
+    var query = {"Email":tf2};
     var data = {$set:{"Name":tf1,"Address":tf3}};
     dbs.collection('records').updateOne(query,data,function(err,res){
       if(err) throw err;
@@ -72,7 +72,7 @@ router.post('/del',function(req,res,next){
     if(err) throw err;
     console.log('DB Connected');
     var dbs = db.db('db1');
-    var query = {"Email":tf2};
+    var query = {"Email-id":tf2};
     dbs.collection('records').deleteOne(query,function(err,obj){
       if(err) throw err;
       console.log(obj+'Record Deleted');
@@ -81,4 +81,25 @@ router.post('/del',function(req,res,next){
   });
   res.render('index',{title:'Express'});
 });
+
+router.get('/fetch',function(req,res,next){
+  res.render('fetch',{title:'Delete'});
+});
+
+router.post('/fet',function(req,res,next){
+  var tf2 = req.body.email;
+  mongo.connect(url,{useNewUrlParser:true},function(err,db){
+    if(err) throw err;
+    console.log('DB Connected');
+    var dbs = db.db('db1');
+    var query = {"Email-id":tf2};
+    dbs.collection('records').find(query).toArray(function(err,obj){
+      if(err) throw err;
+      console.log(obj);
+    });
+    db.close();
+  });
+  res.render('index',{title:'Express'});
+});
+
 module.exports = router;
